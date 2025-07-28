@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="changeText()">Click me!</button>
+    <p id="text">Kasthamandap Collage</p>
+  </body>
+
+  <script>
+    var n = 0;
+    function changeText() {
+      n++;
+      // document.getElementById("text").innerHTML = "Hello Kitty!!".concat(n);
+      document.getElementById("text").innerHTML = "Hello Kitty!!" + n;
+      console.log(`Hello Kitty!! ${n}`);
+    }
+  </script>
+</html>

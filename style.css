@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+.flexContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 22px;
+  height: 100vh;
+  background: linear-gradient(to right, #ff000094, pink);
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+  gap: 10px;
+  height: 100vh;
+  background-color: red;
+}
+
+.grid-flex-header {
+  grid-area: header;
+  background: cornflowerblue;
+  text-align: center;
+}
+.grid-flex-sidebar {
+  grid-area: sidebar;
+  background: #b18eef;
+  text-align: center;
+}
+.grid-flex-main {
+  grid-area: main;
+  background: #6b54e0;
+  text-align: center;
+}
+.grid-flex-footer {
+  grid-area: footer;
+  background: #cde054;
+  text-align: center;
+}

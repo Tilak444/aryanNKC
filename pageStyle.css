@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.cotainerTop {
+  display: flex;
+  position: absolute;
+  flex-direction: row;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 40rem;
+}
+.logo img {
+  width: 4rem;
+  height: auto;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 35rem;
+}

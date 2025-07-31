@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="" onsubmit="showResult(event)">
+      <h1>User Information form</h1>
+      <fieldset>
+        <legend>Personal Details</legend>
+        <label for="name">Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          onkeypress="showchange()"
+        /><br /><br />
+        <span id="error-name"></span><br />
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          onkeypress="checkEmail()"
+        /><br />
+        <span id="error-email"></span><br /><br />
+        <label for="date">Date:</label>
+        <input
+          type="date"
+          id="dob"
+          name="date"
+          onchange="datecheck()"
+        /><br /><br />
+        <span id="error-date"></span>
+        <label for="text">Short Bio:</label>
+        <textarea name="" id="bio" cols="35" rows="5"></textarea>
+        <br /><br />
+      </fieldset>
+      <fieldset>
+        <legend>Preferences</legend>
+        <label for="choice">Country:</label>
+        <br />
+        <select name="" id="country">
+          <option value="Nepal">Nepal</option>
+          <option value="Australia">Australia</option>
+          <option value="Switzerland">Switzerland</option>
+          <option value="Japan">Japan</option>
+          <option value="Mexico">Mexico</option>
+        </select>
+        <br /><br />
+        <label for="checkbox">Subscribe to newsletter:</label>
+        <br />
+        <input type="checkbox" id="newsletter" />Yes <br /><br />
+      </fieldset>
+      <button type="submit">Submit</button>
+    </form>
+    <p id="result">Result</p>
+  </body>
+  <script src="script.js"></script>
+</html>

@@ -5,7 +5,7 @@ function showResult(e) {
 
   let name = document.getElementById("name").value;
   let email = document.getElementById("email").value;
-  let dob = document.getElementById("dob").value;
+  let dobinput = document.getElementById("dob").value;
   let bio = document.getElementById("bio").value;
   let country = document.getElementById("country").value;
   let news = document.getElementById("newsletter").checked ? "yes" : "No";
@@ -13,18 +13,14 @@ function showResult(e) {
   let formResult = `
   Name: ${name}<br>
   Email: ${email}<br>
-  Date of Birth: ${dob}<br>
+  Date of Birth: ${dobinput}<br>
   Bio: ${bio}<br>
   Country: ${country}<br>
   Subscribe to Newsletter: ${news}
   `;
 
   p.innerHTML = formResult;
-}
 
-function showchange() {
-  // alert("Name changed");
-  let name = document.getElementById("name").value;
   let errorName = document.querySelector("#error-name");
 
   if (name.length < 3) {
@@ -33,10 +29,7 @@ function showchange() {
   } else {
     errorName.style.display = "none";
   }
-}
-function checkEmail() {
-  // alert("Name changed");
-  let email = document.getElementById("email").value;
+
   let errorSpan = document.querySelector("#error-email");
 
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -48,18 +41,51 @@ function checkEmail() {
   } else {
     errorSpan.style.display = "none";
   }
-}
 
-function dateCheck() {
-  let dob = document.getElementById("dob").value;
-  let error = document.getElementById("error-date");
-  let now = Date.now();
+  let errorDate = document.getElementById("error-date");
+  if (!dobinput) {
+    errorDate.textContent = "Date of birth can not be empty";
+    errorDate.style.color = "red";
+    errorDate.style.display = "block";
+    isvalid = false;
+  }
+  let dob = new Date(dobInput);
+  let now = new Date();
+  let dobMidnight = new Date(
+    dob.getFullYear(),
+    dob.getMonth(),
+    dob.getDate()
+  ).getTime();
+  let todayMidnight = new Date(
+    now.getFullYear(),
+    now.getMonth(),
+    now.getDate()
+  ).getTime();
 
-  if (dob == now) {
-    error.textContent = "Don't enter todays day";
-    error.style.color = "red";
-    error.style.display = "block";
+  if (dobMidnight === todayMidnight) {
+    errorDate.textContent = "Don't enter today's date";
+    errorDate.style.color = "red";
+    errorDate.style.display = "block";
+    isValid = false;
+  } else if (dobMidnight > todayMidnight) {
+    errorDate.textContent = "Invalid date of birth (future date)";
+    errorDate.style.color = "red";
+    errorDate.style.display = "block";
+    isValid = false;
   } else {
-    error.style.display = "none";
+    errorDate.style.display = "none";
   }
 }
+
+// function showchange() {
+//   // alert("Name changed");
+//   let name = document.getElementById("name").value;
+// }
+// function checkEmail() {
+//   // alert("Name changed");
+//   let email = document.getElementById("email").value;
+// }
+
+// function dateCheck() {
+//   let dob = document.getElementById("dob").value;
+// }
